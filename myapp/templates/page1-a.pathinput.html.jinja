@@ -1,0 +1,17 @@
+{% extends "pathinput.html.jinja" %}
+{# This use of {% set %} is the way to do this, and other subsitution if you require to re-use the value elsewhere in the template #}
+{% set blockId="pathinput1a" %}
+{% set leftListId="A-left-list" %}
+{% block left_options_list %}
+{# TODO: use for loop on the A_left_value_options object to create options dynamically #}
+  <option value="/example">
+  <option value="/example/2/">
+{% endblock left_options_list %}
+
+{% block leftInputIdBlock %}A_left_input{% endblock %}
+{% block middleInputIdBlock %}A_middle{% endblock %}
+{% block rightInputIdBlock %}A_right_input{% endblock %}
+
+{% block initialValueLeftBlock %}{{ A_initial_left_value }}{% endblock %}
+{% block initialValueMiddleBlock %}fixed middle value{% endblock %}
+{% block initialValueRightBlock %}{{ A_initial_right_value }}{% endblock %}

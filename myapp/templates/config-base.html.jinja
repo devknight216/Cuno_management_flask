@@ -1,0 +1,28 @@
+{% extends "base.html.jinja" %}
+
+{# head #}
+{% block title %}Base Page{% endblock %}
+
+{# body #}
+{% block content %}
+<h1>{% block h1_title %}This is expected to be replaced!{% endblock %}</h1>
+
+<div class="card shadow-sm p-3 mb-5 bg-white" id="main body">
+  <div class="card-body">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+            {% block left_content %}
+                Left column
+            {% endblock left_content %}
+            </div>
+            <div class="col-sm card shadow-sm bg-white rounded">
+            {% block right_content %}
+                Right column
+            {% endblock right_content %}
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

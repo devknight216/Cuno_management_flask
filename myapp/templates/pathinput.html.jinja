@@ -1,0 +1,11 @@
+<datalist id="{{ leftListId }}">
+  {% block left_options_list %}
+  {% endblock %}
+</datalist>
+ 
+<input type="search" list="{{ leftListId }}" id="{{ blockId }}" value="{% block initialValueLeftBlock %}{% endblock %}">
+
+<input type="text" id="rightid" value="{% block initialValueRightBlock %}{% endblock %}">
+
+{# TODO: other elements of the path input (middle, right input, button). Example of how to re-use the blockid later in the template is provided below. It also exhibits a way to use the JavaScript functions defined in pathinput.js modularly. 
+<a ... onclick="myFunc( {{ self.idblock }} );">...</a> #}

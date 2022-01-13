@@ -1,0 +1,4 @@
+# These must be absolute paths as they are going to be mounted into the docker container.
+admin_mount: "/home/admin"
+users_mounts: [ "/home/abdullah/cuno-web-manager/users", "/home/abdullah" ]
+groups_mounts: [ "/home/abdullah/cuno-web-manager/groups" ]

@@ -1,0 +1,17 @@
+[Unit]
+Description=My Python Application
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/var/www/myapp
+Environment="PATH=/var/www/myapp/myenv/bin"
+# Couldn't get this to communicate NGINX through the unix socket it sets up
+#ExecStart=/usr/bin/uwsgi --ini myapp.ini
+# Ideally this would just execute /var/www/myapp/start_uwsgi_webserver.sh but I couldn't get that to work
+ExecStart=/usr/bin/uwsgi --socket 0.0.0.0:5000 --protocol=http --plugin python38 --module wsgi:app --virtualenv /var/www/myapp/myenv --logto /var/log/uwsgi/myapp.log --env="FLASK_ENV=development"
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

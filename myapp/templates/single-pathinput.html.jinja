@@ -1,0 +1,16 @@
+{% extends "base.html.jinja" %}
+
+{# head #}
+{% block extrascripts %}
+<script async src="/static/js/pathinput.js"></script>
+{% endblock extrascripts %}
+{% block title %}Page with single path input{% endblock %}
+
+{# body #}
+{% block content %}
+
+<div class="container">
+{% include "main-pathinput.html.jinja" %}
+</div>
+
+{% endblock content %}

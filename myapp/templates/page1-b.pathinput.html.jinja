@@ -1,0 +1,11 @@
+{% extends "pathinput.html.jinja" %}
+{% set blockId="pathinput1b" %}
+{% set leftListId="B-left-list" %}
+{% block left_options_list %}
+{# TODO: use for loop on the A_left_value_options object to create options dynamically #}
+  <option value="/B/example">
+  <option value="/B/example/2/">
+{% endblock left_options_list %}
+{% block initialValueLeftBlock %}{{ B_initial_left_value }}{% endblock %}
+{% block initialValueMiddleBlock %}fixed middle B value{% endblock %}
+{% block initialValueRightBlock %}{{ B_initial_right_value }}{% endblock %}

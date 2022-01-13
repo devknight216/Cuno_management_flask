@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+{# This defines a default head block. If a head block is supplied in a template which extends base.html.jinja then thhis whole block is replaced. The child template is able to call super() (see https://jinja.palletsprojects.com/en/3.0.x/templates/#super-blocks ) to include this block. #}
+{% block head %}
+  {# Required meta tags #}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/var/www/myapp/" />
+  {# Bootstrap CSS #}
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  {# Any custom styling we want on top of BootStrap #}
+  <link href="/static/css/myapp.css" rel="stylesheet">
+  {# Include jQuery #}
+  <script async src="/static/js/jquery-3.6.0.js"></script>
+  {# Bootstrap JavaScript #}
+  <script async src="/static/js/bootstrap.bundle.min.js"></script>
+  {# js-cookie https://github.com/js-cookie/js-cookie #}
+  <script nomodule async src="/path/to/js.cookie.js"></script>
+  {% block extrascripts %}{% endblock %}
+  {# All child templates must define a title block. The required tag on the block will cause any page that does not override the title block to error on render. !#} 
+  <title>{% block title required %}{% endblock %} - CUNO Management Console</title>
+{% endblock head %}
+</head>
+
+
+<body class='bg-light'>
+{% block body %}
+    {% include 'navbar.html' %}
+    
+    <div id="content">{% block content required %}{% endblock %}</div>
+    
+    {% include 'footer.html.jinja' %}
+{% endblock body %}
+</body>
+
+
+</html>

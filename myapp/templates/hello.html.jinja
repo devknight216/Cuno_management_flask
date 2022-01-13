@@ -1,0 +1,13 @@
+<!doctype html>
+{# Inside templates you also have access to the config, request, session and g 1 objects as well as the url_for() and get_flashed_messages() functions.  #}
+<body>
+<title>Hello from Flask</title>
+{% if config["DEBUG"] %}
+  <h1>Hello debug!</h1>
+{% else %}
+  <h1>Hello production!</h1>
+{% endif %}
+{% if some_var %}
+  <h2>some_var provided and set to: {{ some_var }}</h2>
+{% endif %}
+</body>
