@@ -1,0 +1,23 @@
+{
+    "input-issues": 3,
+    "issues": [    
+      {
+        "input-name": "filename",
+        "error-title": "Name unavailable", 
+        "error-message": "Another credentials file already uses this name."
+      },
+      {
+        "input-name": "access-key-id",
+        "error-title": "Error",
+        "error-message": "An issue occurred with verification"
+      },
+      {
+        "input-name": "access-key",
+        "error-title": "Error",
+        "error-message": "An issue occurred with verification"
+      }
+    ],
+    "full-log": "...",
+    "full-errorlog": "..."
+  }
+    

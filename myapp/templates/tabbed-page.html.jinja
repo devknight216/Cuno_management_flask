@@ -1,0 +1,72 @@
+{% extends "config-base.html.jinja" %}
+
+{# head #}
+{% block title %}Tabbed page{% endblock %}
+{% block extrascripts %}
+  <link href="/static/css/tabbed-page.css" rel="stylesheet">
+  <script async src="/static/js/tabbed-page.js"></script>
+{% endblock extrascripts %}
+
+{# body #}
+{% block h1_title %}Tabbed page{% endblock %}
+
+{% block left_content %}
+    {# Your tabs list goes here #}
+    <div class="accordion" id="tabAccordion">
+    {% for provider in credentials %}
+      <div class="accordion-item" style="position:relative">
+        <h2 class="accordion-header">
+          <div class="accordion-button collapsed {{provider}}" type="button" data-bs-toggle="collapse" data-bs-target="#{{provider}}" aria-expanded="true" aria-controls="collapseOne">
+            {% if provider == 'S3' %}
+            {{provider}}
+            {% elif provider == 'AZ' %}
+            Azure
+            {% else %}
+            Google Cloud Storage
+            {% endif %}
+          </div>
+        </h2>
+        <button type="button" class="btn btn-secondary" style="position: absolute; right: 20px; top: 7px; z-index: 2222;">
+        Add new
+        </button>
+        <div id="{{provider}}" class="accordion-collapse collapse" data-bs-parent="#tabAccordion">
+          {# <div class="accordion-body"> #}
+            <div class="list-group" id="list-tab" role="tablist">
+<<<<<<< HEAD
+              {% for file in credentials[provider] %}
+                <a class="list-group-item list-group-item-action storage-tab" id="{{file}}" data-bs-toggle="list" role="tab" filename="{{file}}" provider="{{provider}}">{{file}}</a>
+              {% endfor %}
+=======
+              {% if credentials[provider]|length > 1 %}
+                {% for file in credentials[provider] %}
+                  <a class="list-group-item list-group-item-action storage-tab {{file}}" id="{{file}}" data-bs-toggle="list" role="tab" filename="{{file}}" provider="{{provider}}">{{file}}</a>
+                {% endfor %}
+              {% else %}
+                  <a class="list-group-item list-group-item-dark disabled" data-bs-toggle="list" role="tab">No credentials imported</a>
+              {% endif %}
+>>>>>>> f768c84d6466a847ef02fe191112707ac4fa9b4e
+            </div>
+          {# </div> #}
+        </div>
+      </div>
+<<<<<<< HEAD
+      
+    {% endfor %}
+    </div>
+=======
+    {% endfor %}
+    </div>
+
+>>>>>>> f768c84d6466a847ef02fe191112707ac4fa9b4e
+{% endblock left_content %} 
+
+{% block right_content %}
+    <div id="tabbed-content">
+      <div class="tab-content" id="nav-tabContent">
+<<<<<<< HEAD
+=======
+      <!--###initialtabcontent###-->
+>>>>>>> f768c84d6466a847ef02fe191112707ac4fa9b4e
+      </div>
+    </div>
+{% endblock right_content %}
